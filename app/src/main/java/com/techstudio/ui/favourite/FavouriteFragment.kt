@@ -6,8 +6,8 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.techstudio.R
-import com.techstudio.extensions.addFragment
 import com.techstudio.extensions.observeNonNull
+import com.techstudio.extensions.replaceFragment
 import com.techstudio.ui.detail.ArticleFragment
 import com.techstudio.ui.main.ArticleAdapter
 import kotlinx.android.synthetic.main.fragment_favourite.*
@@ -24,7 +24,7 @@ class FavouriteFragment : Fragment(R.layout.fragment_favourite) {
     private val adapter by lazy {
         ArticleAdapter(
             onItemClickListener = { article ->
-                addFragment(ArticleFragment.newInstance(article.id))
+                replaceFragment(ArticleFragment.newInstance(article.id))
             },
             onArticleCheck = {
 

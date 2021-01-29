@@ -37,6 +37,13 @@ class MostSharedViewModel(
     }
 
     fun onAddFavourite(article: Article) {
-        articleInteractor.insertArticleFavorite(article)
+        articleInteractor.toggle(article.id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                getArticles()
+            }, {
+                error.postValue(it)
+            })
     }
 }
