@@ -1,0 +1,20 @@
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+configurations {
+    detekt
+}
+
+dependencies {
+    detekt "io.gitlab.arturbosch.detekt:detekt-cli:$detektVersion"
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
+}
+
+task detekt2(type: JavaExec) {
+    main = "io.gitlab.arturbosch.detekt.cli.Main"
+    classpath = configurations.detekt
+    args([
+            '--input', "$rootDir",
+            '--config', "$rootDir/scripts/detekt-ruleset.yml",
+            '--excludes', "**/test/**,**/androidTest/**,**/androidIntegrationTest/**,**/resources/**,**/tmp/**"
+    ])
+}

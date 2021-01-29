@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemEmailed"
+        android:icon="@drawable/ic_email"
+        android:title="@string/emailed"/>
+    <item
+        android:id="@+id/itemShared"
+        android:icon="@drawable/ic_share"
+        android:title="@string/shared"/>
+    <item
+        android:id="@+id/itemViewed"
+        android:icon="@drawable/ic_view"
+        android:title="@string/viewed"/>
+</menu>

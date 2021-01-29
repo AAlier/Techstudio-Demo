@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+apply from: "$project.rootDir/scripts/credentials.gradle"
+apply from: "$project.rootDir/scripts/versioning.gradle"
+
+android {
+    compileSdkVersion sdkCompileVersion
+    buildToolsVersion buildToolsAllVersion
+
+    defaultConfig {
+        applicationId "com.techstudio"
+        minSdkVersion sdkMinVersion
+        targetSdkVersion sdkTargetVersion
+        versionCode VERSION_CODE
+        versionName VERSION_NAME
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_KEY", "\"${API_KEY}\""
+        }
+        debug {
+            buildConfigField "String", "API_KEY", "\"${API_KEY}\""
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation kotlinDependencies.stdlib
+
+    implementation retrofitDependencies.core
+    implementation retrofitDependencies.gsonConverter
+
+    implementation otherDependencies.timber
+
+    implementation koinDependencies.core
+    implementation koinDependencies.viewModel
+
+    implementation androidXDependencies.appcompat
+    implementation androidXDependencies.materialDesign
+    implementation androidXDependencies.swiperefreshlayout
+    implementation androidXDependencies.coreKtx
+    implementation androidXDependencies.viewPager2
+
+    implementation otherDependencies.glide
+
+    implementation rxJava.rxAndroid
+    implementation rxJava.java
+    implementation rxJava.rxAdapter
+}

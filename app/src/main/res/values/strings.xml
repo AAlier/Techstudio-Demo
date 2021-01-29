@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Techstudio</string>
+    <string name="most_emailed">Emailed</string>
+    <string name="most_shared">Shared</string>
+    <string name="most_viewed">Viewed</string>
+    <string name="general_error_message">Something went wrong</string>
+    <string name="favourite">Favorite</string>
+    <string name="refresh">Refresh</string>
+    <string name="no_content">Nothing to show</string>
+    <string name="emailed">Emailed</string>
+    <string name="shared">Shared</string>
+    <string name="viewed">Viewed</string>
+</resources>

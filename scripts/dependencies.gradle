@@ -1,0 +1,199 @@
+ext {
+
+    buildToolsAllVersion = '30.0.2'
+
+    sdkMinVersion = 21
+    sdkTargetVersion = 30
+    sdkCompileVersion = 30
+
+    // https://github.com/detekt/detekt
+    detektVersion = '1.9.1'
+
+    gradlePluginVersion = '4.1.1'
+    kotlinVersion = '1.4.21'
+
+    gradlePluginDependencies = [
+            build              : "com.android.tools.build:gradle:$gradlePluginVersion",
+            kotlin             : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion",
+            // https://maven.google.com/web/index.html
+            googleServices     : "com.google.gms:google-services:4.3.4",
+            appDistribution    : "com.google.firebase:firebase-appdistribution-gradle:2.0.1",
+            firebaseCrashlytics: "com.google.firebase:firebase-crashlytics-gradle:2.4.1",
+            // https://github.com/Triple-T/gradle-play-publisher
+            playPublisher      : "com.github.triplet.gradle:play-publisher:3.0.0",
+            detekt             : "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detektVersion",
+            firebasePerformance: "com.google.firebase:perf-plugin:1.3.4"
+    ]
+
+    kotlinDependencies = [
+            // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib
+            stdlib       : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            reflectKotlin: "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion",
+    ]
+
+    coroutinesVersion = '1.4.2'
+    coroutinesDependencies = [
+            // https://github.com/Kotlin/kotlinx.coroutines
+            core   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion",
+            android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
+    ]
+
+    firebaseDependencies = [
+            // https://firebase.google.com/support/release-notes/android#latest_sdk_versions
+            billOfMaterials: "com.google.firebase:firebase-bom:26.2.0"
+    ]
+
+    grpcVersion = '1.34.1'
+
+    grpcDependencies = [
+            // https://github.com/grpc/grpc/releases
+            okhttp      : "io.grpc:grpc-okhttp:$grpcVersion",
+            android     : "io.grpc:grpc-android:$grpcVersion",
+            stub        : "io.grpc:grpc-stub:$grpcVersion",
+            protobufLite: "io.grpc:grpc-protobuf-lite:$grpcVersion"
+    ]
+
+    retrofitVersion = '2.9.0'
+
+    retrofitDependencies = [
+            // https://github.com/square/retrofit
+            core         : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            gsonConverter: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            rxAdapter    : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            scalars      : "com.squareup.retrofit2:converter-scalars:$retrofitVersion",
+    ]
+
+    koinVersion = '2.1.6'
+
+    koinDependencies = [
+            // https://github.com/InsertKoinIO/koin
+            core     : "org.koin:koin-android:$koinVersion",
+            scope    : "org.koin:koin-androidx-scope:$koinVersion",
+            viewModel: "org.koin:koin-androidx-viewmodel:$koinVersion"
+    ]
+
+    rxJava = [
+            rxAndroid: 'io.reactivex:rxandroid:1.2.1',
+            java   : 'io.reactivex:rxjava:1.3.0',
+            rxAdapter: 'com.squareup.retrofit2:adapter-rxjava:2.4.0'
+    ]
+
+    roomVersion = '2.2.6'
+    pagingVersion = '2.1.2'
+
+    androidXDependencies = [
+            // https://mvnrepository.com/artifact/androidx.room/room-runtime
+            roomRuntime       : "androidx.room:room-runtime:$roomVersion",
+            roomCoroutines    : "androidx.room:room-ktx:$roomVersion",
+            roomCompiler      : "androidx.room:room-compiler:$roomVersion",
+            // https://mvnrepository.com/artifact/androidx.paging/paging-runtime
+            paging            : "androidx.paging:paging-runtime:$pagingVersion",
+            // https://dl.google.com/dl/android/maven2/index.html
+            appcompat         : "androidx.appcompat:appcompat:1.2.0",
+            materialDesign    : "com.google.android.material:material:1.3.0-rc01",
+            swiperefreshlayout: 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0',
+            coreKtx           : 'androidx.core:core-ktx:1.3.2',
+            lifecycle         : "androidx.lifecycle:lifecycle-extensions:2.2.0",
+            constraintLayout  : "androidx.constraintlayout:constraintlayout:2.0.4",
+            customTabs        : "androidx.browser:browser:1.3.0",
+            smsRetriever      : "com.google.android.gms:play-services-auth-api-phone:17.5.0",
+            workManager       : "androidx.work:work-runtime-ktx:2.4.0",
+            viewPager2        : "androidx.viewpager2:viewpager2:1.0.0",
+            exifinterface     : "androidx.exifinterface:exifinterface:1.1.0",
+            biometric         : 'androidx.biometric:biometric:1.0.1',
+            // https://developer.android.com/jetpack/androidx/releases/fragment
+            fragment          : "androidx.fragment:fragment-ktx:1.3.0-rc01",
+            // InApp updates
+            // https://developer.android.com/guide/app-bundle/playcore#include_playcore
+            playCore          : "com.google.android.play:core:1.9.0",
+            playCoreKtx       : "com.google.android.play:core-ktx:1.8.1",
+            preference        : 'androidx.preference:preference-ktx:1.1.1',
+            securityCrypto    : "androidx.security:security-crypto:1.1.0-alpha03",
+            mlkitBarcode      : "com.google.android.gms:play-services-mlkit-barcode-scanning:16.1.3"
+    ]
+
+    privateDependencies = [
+            // https://nexus.btsd.kz/#browse/browse:maven-releases:kz%2Fbtsd%2Fmessproto-lite
+            messProto: "kz.btsd:messproto-kotlin-lite:1.318.0"
+    ]
+
+    exoPlayerVersion = '2.12.2'
+    glide = '4.11.0'
+
+    otherDependencies = [
+
+            // https://github.com/google/ExoPlayer/blob/release-v2/RELEASENOTES.md
+            exoplayerCore          : "com.google.android.exoplayer:exoplayer-core:$exoPlayerVersion",
+            exoplayerUi            : "com.google.android.exoplayer:exoplayer-ui:$exoPlayerVersion",
+            exoplayerHls           : "com.google.android.exoplayer:exoplayer-hls:$exoPlayerVersion",
+            // https://github.com/bumptech/glide
+            glide                  : "com.github.bumptech.glide:glide:$glide",
+            glideOkhttp            : "com.github.bumptech.glide:okhttp3-integration:$glide",
+            glideCompiler          : "com.github.bumptech.glide:compiler:$glide",
+            // https://github.com/wasabeef/glide-transformations
+            glideTransformations   : 'jp.wasabeef:glide-transformations:4.3.0',
+            // https://github.com/JakeWharton/timber
+            timber                 : "com.jakewharton.timber:timber:4.7.1",
+            // https://github.com/square/okhttp
+            okHttp                 : 'com.squareup.okhttp3:okhttp:4.9.0',
+            loggingInterceptor     : "com.squareup.okhttp3:logging-interceptor:4.9.0",
+            // https://github.com/google/flexbox-layout
+            // если поднять версию до 2.х карточки в ботах отображаются неправильно, так как DynamicCustomLayout неверно считает свою ширину
+            flexBox                : 'com.google.android:flexbox:1.1.1',
+            // https://github.com/amplitude/Amplitude-Android
+            amplitude              : 'com.amplitude:android-sdk:2.30.0',
+            // https://github.com/BranchMetrics/android-branch-deep-linking-attribution
+            branch                 : 'io.branch.sdk.android:library:5.0.4',
+            // https://github.com/TinkoffCreditSystems/ScrollingPagerIndicator
+            scrollingPagerIndicator: 'ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:1.2.1',
+            // http://facebook.github.io/shimmer-android/
+            shimmer                : 'com.facebook.shimmer:shimmer:0.5.0',
+            // https://github.com/RedMadRobot/input-mask-android
+            inputmask              : "com.redmadrobot:input-mask-android:6.0.0",
+            // https://github.com/google/gson
+            gson                   : "com.google.code.gson:gson:2.8.6",
+            // https://bintray.com/google/webrtc/google-webrtc
+            webrtc                 : "org.webrtc:google-webrtc:1.0.32006",
+            // https://mvnrepository.com/artifact/com.googlecode.mp4parser/isoparser
+            isoparser              : "com.googlecode.mp4parser:isoparser:1.0.6",
+            // https://github.com/warkiz/TickSeekBar
+            tickSeekBar            : "com.github.warkiz.tickseekbar:tickseekbar:0.1.4",
+            // https://github.com/chrisbanes/PhotoView
+            photoView              : 'com.github.chrisbanes:PhotoView:2.3.0',
+            // https://github.com/natario1/CameraView
+            // 2.6.2 cause java.lang.NoClassDefFoundError: Failed resolution of: Lcom/otaliastudios/opengl/texture/GlTexture;
+            cameraView             : 'com.otaliastudios:cameraview:2.6.1',
+            // https://github.com/vanniktech/Emoji
+            emoji                  : 'com.vanniktech:emoji-google:0.7.0',
+            listenablefuture       : 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava',
+
+            // https://github.com/natario1/GIFCompressor
+            gifCompressor          : 'com.otaliastudios.gif:compressor:1.0.0',
+            location               : 'com.google.android.gms:play-services-location:17.1.0',
+
+            // https://github.com/rubensousa/GravitySnapHelper
+            gravitySnapHelper      : 'com.github.rubensousa:gravitysnaphelper:2.2.1'
+    ]
+
+    mockkVersion = '1.9.3'
+
+    testDependencies = [
+            // https://mvnrepository.com/artifact/junit/junit
+            junit          : 'junit:junit:4.12',
+            // https://github.com/mockk/mockk
+            mockk          : "io.mockk:mockk:$mockkVersion",
+            // https://mvnrepository.com/artifact/androidx.arch.core/core-testing
+            archCoreTesting: "androidx.arch.core:core-testing:2.0.1",
+            // https://mvnrepository.com/artifact/androidx.room/room-testing
+            archRoomTesting: "androidx.room:room-testing:$roomVersion"
+    ]
+
+    androidTestDependencies = [
+            // https://mvnrepository.com/artifact/androidx.test/runner
+            androidTestOrchestrator: "androidx.test:orchestrator:1.3.0",
+            // https://github.com/DiUS/java-faker
+            faker                  : "com.github.javafaker:javafaker:1.0.2",
+            // https://github.com/KasperskyLab/Kaspresso
+            kaspresso              : "com.kaspersky.android-components:kaspresso:1.1.0"
+    ]
+}

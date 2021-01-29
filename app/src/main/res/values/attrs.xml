@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="placeholderDrawable" format="reference" />
+    <attr name="placeholderTint" format="reference" />
+
+    <declare-styleable name="ImageWithPlaceholderView">
+        <attr name="placeholderDrawable" />
+        <attr name="placeholderTint" />
+        <attr name="clipImageView" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundedFrameLayout">
+        <attr name="android:radius" format="dimension"/>
+    </declare-styleable>
+
+</resources>
