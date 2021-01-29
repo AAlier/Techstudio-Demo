@@ -64,7 +64,6 @@ class MostViewedFragment : Fragment(R.layout.fragment_most_viewed) {
         }
     }
 
-
     private val swipeHandler = object : BookMarkSwipeCallback() {
         override fun onRightSwiped(viewHolder: RecyclerView.ViewHolder) {
 
