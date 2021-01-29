@@ -10,7 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/actionBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="220dp"
         android:background="@color/white"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -20,19 +20,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="@color/primary"
+            app:statusBarScrim="@color/primaryDark"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <com.techstudio.ui.widget.ImageWithPlaceholderView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
+                android:fitsSystemWindows="true"
                 android:layout_height="220dp" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:fitsSystemWindows="false"
                 app:layout_collapseMode="pin"
                 app:menu="@menu/favourite"
                 app:navigationIcon="@drawable/ic_arrow_back"

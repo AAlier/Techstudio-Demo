@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/primaryDark</item>
+        <item name="colorPrimaryVariant">@android:color/transparent</item>
         <item name="colorOnPrimary">@color/white</item>
 
         <item name="colorSecondary">@color/teal_200</item>

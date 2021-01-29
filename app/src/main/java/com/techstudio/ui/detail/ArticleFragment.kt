@@ -1,7 +1,9 @@
 package com.techstudio.ui.detail
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.techstudio.R
@@ -28,6 +30,15 @@ class ArticleFragment : Fragment(R.layout.fragment_article_detail) {
         MediaAdapter {
             MediaPreviewDialog.show(childFragmentManager, it)
         }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        container?.fitsSystemWindows = true
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
