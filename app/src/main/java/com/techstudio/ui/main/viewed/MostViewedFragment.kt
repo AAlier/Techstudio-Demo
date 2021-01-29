@@ -5,7 +5,6 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.techstudio.R
 import com.techstudio.extensions.addFragment
@@ -45,8 +44,6 @@ class MostViewedFragment : Fragment(R.layout.fragment_most_viewed) {
                 DividerItemDecoration.VERTICAL
             )
         )
-        val itemTouchHelper = ItemTouchHelper(swipeHandler)
-        itemTouchHelper.attachToRecyclerView(recyclerView)
 
         viewModel.items.observeNonNull(viewLifecycleOwner, adapter::setData)
         viewModel.isRefreshing.observeNonNull(viewLifecycleOwner) { isLoading ->
