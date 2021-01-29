@@ -36,8 +36,8 @@ class MostViewedViewModel(
             )
     }
 
-    fun onAddFavourite(article: Article) {
-        articleInteractor.toggle(article.id)
+    fun toggle(id: Long) {
+        articleInteractor.toggle(id)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
