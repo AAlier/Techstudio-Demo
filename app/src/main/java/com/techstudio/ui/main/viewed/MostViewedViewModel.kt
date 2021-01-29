@@ -22,7 +22,7 @@ class MostViewedViewModel(
 
     fun getArticles(period: Period = Period.MONTH) {
         isRefreshing.postValue(true)
-        articleInteractor.getMostViewed(period.durationInDays)
+        articleInteractor.loadMostViewed(period.durationInDays)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(

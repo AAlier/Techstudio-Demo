@@ -5,9 +5,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.techstudio.R
-import com.techstudio.extensions.args
-import com.techstudio.extensions.observeNonNull
-import com.techstudio.extensions.withArgs
+import com.techstudio.extensions.*
 import kotlinx.android.synthetic.main.fragment_article_detail.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -27,7 +25,9 @@ class ArticleFragment : Fragment(R.layout.fragment_article_detail) {
         parametersOf(id)
     }
     private val adapter by lazy {
-        MediaAdapter()
+        MediaAdapter {
+            MediaPreviewDialog.show(childFragmentManager, it)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -61,6 +61,9 @@ class ArticleFragment : Fragment(R.layout.fragment_article_detail) {
             val icon =
                 if (it.isFavourite) R.drawable.ic_bookmark_checked else R.drawable.ic_bookmark_unchecked
             toolbar.menu.findItem(R.id.itemFavourite).setIcon(icon)
+        }
+        viewModel.error.observeNonNull(viewLifecycleOwner) {
+            toastShort(it.parse(requireContext()))
         }
     }
 }

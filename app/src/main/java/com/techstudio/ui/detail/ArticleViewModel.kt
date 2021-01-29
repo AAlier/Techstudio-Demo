@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.techstudio.data.article.ArticleInteractor
 import com.techstudio.model.Article
+import com.techstudio.util.SingleLiveEvent
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
@@ -13,6 +14,7 @@ class ArticleViewModel(
 ) : ViewModel() {
 
     val article = MutableLiveData<Article>(articleInteractor.getArticle(id))
+    val error = SingleLiveEvent<Throwable>()
 
     fun toggleFavourite() {
         articleInteractor.toggle(id)
@@ -21,7 +23,7 @@ class ArticleViewModel(
             .subscribe({
                 article.postValue(it)
             }, {
-                it.printStackTrace()
+                error.postValue(it)
             })
     }
 }

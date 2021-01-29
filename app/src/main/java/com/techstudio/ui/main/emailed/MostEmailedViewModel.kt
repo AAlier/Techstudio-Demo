@@ -23,7 +23,7 @@ class MostEmailedViewModel(
 
     fun getArticles(period: Period = Period.MONTH) {
         isRefreshing.postValue(true)
-        articleInteractor.getMostEmailed(period.durationInDays)
+        articleInteractor.loadMostEmailed(period.durationInDays)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(

@@ -10,20 +10,24 @@ import com.techstudio.ui.base.BaseViewHolder
 import kotlinx.android.synthetic.main.item_article_media.view.*
 import kotlinx.android.synthetic.main.item_media_metadata.view.*
 
-class MediaAdapter : BaseAdapter<Media>() {
+class MediaAdapter(
+    onItemClickListener: (MediaMetadata) -> Unit
+) : BaseAdapter<Media>() {
+
     init {
         addViewHolderCreator(Media::class.java) {
-            ViewHolder(it)
+            ViewHolder(it, onItemClickListener)
         }
     }
 }
 
 private class ViewHolder(
-    parent: ViewGroup
+    parent: ViewGroup,
+    onItemClickListener: (MediaMetadata) -> Unit
 ) : BaseViewHolder<Media>(R.layout.item_article_media, parent) {
     private val captionTextView = itemView.captionTextView
     private val recyclerView = itemView.mediaMetaDataRecyclerView
-    private val adapter by lazy { MediaMetaDataAdapter() }
+    private val adapter by lazy { MediaMetaDataAdapter(onItemClickListener) }
 
     init {
         recyclerView.adapter = adapter
@@ -38,17 +42,20 @@ private class ViewHolder(
     }
 }
 
-class MediaMetaDataAdapter : BaseAdapter<MediaMetadata>() {
+class MediaMetaDataAdapter(
+    onItemClickListener: (MediaMetadata) -> Unit
+) : BaseAdapter<MediaMetadata>() {
     init {
         addViewHolderCreator(MediaMetadata::class.java) {
-            MediaViewHolder(it)
+            MediaViewHolder(it, onItemClickListener)
         }
     }
 }
 
 private class MediaViewHolder(
-    parent: ViewGroup
-) : BaseViewHolder<MediaMetadata>(R.layout.item_media_metadata, parent) {
+    parent: ViewGroup,
+    onItemClickListener: (MediaMetadata) -> Unit
+) : BaseViewHolder<MediaMetadata>(R.layout.item_media_metadata, parent, onItemClickListener) {
     private val imageView = itemView.mediaImageView
 
     override fun bind(item: MediaMetadata) {

@@ -10,24 +10,27 @@ class ArticleInteractor(
     private val database: DatabaseHelper
 ) {
 
-    fun getMostEmailed(period: Int): Single<List<Article>> {
+    fun loadMostEmailed(period: Int): Single<List<Article>> {
         return remoteGateway.getMostEmailedArticles(period)
-            .doOnSuccess {
+            .flatMap {
                 localGateway.saveArticles(it)
+                return@flatMap Single.just(it)
             }
     }
 
-    fun getMostShared(period: Int): Single<List<Article>> {
+    fun loadMostShared(period: Int): Single<List<Article>> {
         return remoteGateway.getMostSharedArticles(period)
-            .doOnSuccess {
+            .flatMap {
                 localGateway.saveArticles(it)
+                return@flatMap Single.just(it)
             }
     }
 
-    fun getMostViewed(period: Int): Single<List<Article>> {
+    fun loadMostViewed(period: Int): Single<List<Article>> {
         return remoteGateway.getMostViewedArticles(period)
-            .doOnSuccess {
+            .flatMap {
                 localGateway.saveArticles(it)
+                return@flatMap Single.just(it)
             }
     }
 

@@ -22,7 +22,7 @@ class MostSharedViewModel(
 
     fun getArticles(period: Period = Period.MONTH) {
         isRefreshing.postValue(true)
-        articleInteractor.getMostShared(period.durationInDays)
+        articleInteractor.loadMostShared(period.durationInDays)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
